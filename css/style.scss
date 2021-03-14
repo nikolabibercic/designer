@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300&display=swap');
+/*****************
+variables
+*****************/
+$zuta: #f5d36c;
+$siva: #424242;
+$tamnoSiva: #3d3d3d;
+$svetloSiva: #787878;
+$crna: black;
+$bela: white;
+$text: #898989;
+$fontFamily: 'Roboto', sans-serif;
+$transition: .3s ease;
+/*****************
+mixins
+*****************/
+@mixin flex($justify,$align,$direction) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+@mixin btn {
+    padding: 15px 35px;
+    text-transform: uppercase;
+    background: $zuta;
+    border: none;
+    color: $crna;
+    &:hover {
+        background: $bela;
+        transition: $transition;
+    }
+}
+@mixin hr {
+    border: 1px solid $svetloSiva;
+    width: 100%;
+    margin-top: 50px;
+}
+/*****************
+basic styles
+*****************/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: $fontFamily;
+    font-size: 16px;
+    line-height: 1.6;
+}
+ul {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+.container {
+    width: 70%;
+    margin: auto;
+}
+/*****************
+header
+*****************/
+header {
+    background-color: $zuta;
+    height: auto;
+    .container {
+        @include flex(space-between, center, column);
+        padding-top: 20px;
+        nav {
+            ul {
+                @include flex(space-between, center, row);
+                @media(max-width:767px) {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                }
+                li {
+                    margin-left: 100px;
+                    @media(max-width:767px) {
+                        margin-left: 10px;
+                    }
+                    a {
+                        color: $crna;
+                        font-weight: 100;
+                        &:hover {
+                            transition: $transition;
+                            color: $bela;
+                        }
+                    }
+                }
+            }
+        }
+        hgroup {
+            padding: 50px 0;
+            text-align: center;
+            h1 {
+                font-weight: 400;
+            }
+            h3 {
+                font-weight: 300;
+            }
+        }
+        img {
+            width: 100%;
+            border-top: 20px solid rgba(255,255,255,.5);
+            border-left: 20px solid rgba(255,255,255,.5);
+            border-right: 20px solid rgba(255,255,255,.5);
+        }
+    }
+}
+/*****************
+services
+*****************/
+.services {
+    background-color: $siva;
+    .container {
+        padding: 30px 0px;
+        @include flex(space-between, center, row);
+        @media(max-width:767px) {
+            @include flex(space-between, center, column);
+        }
+        article {
+            flex: 0 0 30%;
+            text-align: center;
+            @media(max-width:767px) {
+                padding-bottom: 30px;
+            }
+            h2 {
+                color: $bela;
+                font-size: 1.8rem;
+                font-weight: 500;
+            }
+            p {
+                font-size: 0.7rem;
+                padding: 20px 15px;
+                color: $svetloSiva;
+            }
+            button {
+                @include btn;
+            }
+        }
+        hr {
+            @include hr;
+        }
+    }
+    hr {
+        @include hr;
+    }
+}
+/*****************
+portfolio
+*****************/
+.portfolio {
+    background-color: $siva;
+    hgroup {
+        text-align: center;
+        line-height: 2.8;
+        h2 {
+            color: $bela;
+            font-size: 1.8rem;
+        }
+        p {
+            color: $bela;
+            font-size: 0.7rem;
+        }
+    }
+    .container {
+        padding: 30px 0px;
+        @include flex(space-between, center, row);
+        @media(max-width:767px) {
+            @include flex(space-between, center, column);
+        }
+        article {
+            flex: 0 0 23%;
+            text-align: center;
+            @media(max-width:767px) {
+                padding-bottom: 30px;
+            }
+            img {
+                width: 100%;
+            }
+            h2 {
+                color: $bela;
+                font-size: 1.8rem;
+                font-weight: 500;
+            }
+            p {
+                font-size: 0.7rem;
+                padding: 20px 15px;
+                color: $svetloSiva;
+            }
+            button {
+                @include btn;
+            }
+        }
+        hr {
+            @include hr;
+        }
+    }
+}
+/*****************
+contact
+*****************/
+.contact {
+    text-align: center;
+    background-color: $siva;    
+    hgroup {
+        line-height: 2.8;
+        h2 {
+            color: $bela;
+            font-size: 1.8rem;
+        }
+        p {
+            color: $bela;
+            font-size: 0.7rem;
+        }
+    }
+    form {
+        @include flex(space-between, center, column);
+        padding: 20px 0;
+        input {
+            background: $tamnoSiva;
+            width: 40%;
+            margin-bottom: 10px;
+            border: none;
+            height: 50px;
+            color: $svetloSiva;
+            padding-left: 10px;
+            padding-top: 3px;
+            font-weight: 600;
+            @media(max-width:767px) {
+                width: 80%;
+            }
+        }
+        textarea {
+            background: $tamnoSiva;
+            width: 40%;
+            border: none;
+            color: $svetloSiva;
+            padding-left: 10px;
+            padding-top: 3px;
+            font-weight: 600;
+            @media(max-width:767px) {
+                width: 80%;
+            }
+        }
+
+        button {
+            @include btn;
+            margin: 30px 0;
+        }
+    }
+    ul {
+        @include flex(center, center, row);
+        li {
+            padding: 10px 15px;
+            i {
+                background: $zuta;
+                color: $tamnoSiva;
+                padding: 18px 18px;
+                font-size: 1.5rem;
+            }
+        }
+    }
+    hr {
+        @include hr;
+        width: 80%;
+    }   
+}
+/*****************
+footer
+*****************/
+footer {
+    text-align: center;
+    background-color: $siva; 
+    color: $svetloSiva;
+    p {
+        padding: 30px 0;
+    }
+}
